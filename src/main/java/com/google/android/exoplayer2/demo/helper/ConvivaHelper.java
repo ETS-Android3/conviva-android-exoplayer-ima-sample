@@ -20,7 +20,7 @@ public class ConvivaHelper {
 
     private static final String PLAYER_APPLICATION_NAME = "ExoPlayerSample";
     //TODO: Replace with Gateway URL provided by Conviva
-    private static final String GATEWAY_URL_VALUE = "GATEWAY_URL_VALUE";
+    private static final String GATEWAY_URL_VALUE = "https://GATEWAY_URL_VALUE.com";
     //TODO: Replace with Customer Key provided by Conviva
     private static final String CUSTOMER_KEY_VALUE = "CUSTOMER_KEY_VALUE";
     private static final String VIEWER_ID_VALUE = "123456789";
