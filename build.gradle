@@ -1,0 +1,105 @@
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.18.3"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        if(System.getenv('JFROG_READONLY_USER')) {
+            maven {
+                url "https://usconviva.jfrog.io/usconviva/eng-mvn-release-local"
+                credentials {
+                    username = System.getenv('JFROG_READONLY_USER')
+                    password = System.getenv('JFROG_READONLY_PW')
+                }
+            }
+        } else {
+            maven {
+                url "https://usconviva.jfrog.io/usconviva/eng-mvn-release-local"
+                credentials {
+                    username "conviva-readonly"
+                    password "eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiJFczc3UDRnTXNfbks1WUt5dE1CcHV5TVlkbXJ0T19PbTdYRmZHN2lWQVNzIn0.eyJzdWIiOiJqZnJ0QDAxZHJmYzRkZDkwZHJzMTJqMHgxMDYxYWRoXC91c2Vyc1wvY29udml2YS1yZWFkb25seSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL2dyb3VwczpyZWFkZXJzLFJlYWRvbmx5VG9rZW4iLCJhdWQiOiJqZnJ0QDAxZHJmYzRkZDkwZHJzMTJqMHgxMDYxYWRoIiwiaXNzIjoiamZydEAwMWRyZmM0ZGQ5MGRyczEyajB4MTA2MWFkaFwvdXNlcnNcL2NvbnZpdmEtcmVhZG9ubHkiLCJleHAiOjE2NDA3MDE3MDUsImlhdCI6MTY0MDY3MjkwNSwianRpIjoiMDllYWMzMDYtOGE4MS00MGYzLWEwZWQtNThkMjU2OTliOGM4In0.PJWVz8PRTMm8hzXJXesBRh2FcOv-FBTvbbN-NXiwy76oRXevgcd8EOdq8S5ZfF0e4n4-S7BvEc3G5iW1Pot0sfxRd4n6MVkiYbuygVD_maRpkCm1drwGEb89M4qjfkD8Zwj4EhdIQ7DLOHduHn9yqJKKBtXhEtmojZCGeDrg_Hudcly_5vYyDFtpJc2f6WNaDJ2HDnL3gkzq3DkclxCwyn-jgRh2fDLKESPoPAwN9_sWM6SOPhslhzpnjFSeqfPIz9adClEKmou_URuEq8BEIo44eOi6UfPDzqNHsmKlO3J6GX__-QwuVJ0g4NYt6-ZaY5gIiFdC9fbmr0qoryz2Yg"
+                }
+            }
+        }
+    }
+}
+
+//apply from: 'settings.gradle'
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 31
+    defaultConfig {
+        applicationId "com.google.android.exoplayer2.demo"
+        minSdkVersion 24
+        targetSdkVersion 31
+        versionCode 1
+        versionName "4.0.18"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    def KEY_STORE_FILE = 'test.keystore'
+
+    signingConfigs {
+        myConfig {
+            storeFile file(KEY_STORE_FILE)
+            storePassword "goconviva"
+            keyAlias "android.test.key"
+            keyPassword "goconviva"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.myConfig
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.myConfig
+        }
+    }
+
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-v4:27.1.0'
+    }
+}
+
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.android.exoplayer:exoplayer:2.16.1'
+    implementation 'com.google.android.exoplayer:extension-cronet:2.16.1'
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.25.1'
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
+    implementation 'com.conviva.sdk:conviva-exoplayer-sdk:4.0.10'
+    implementation 'com.conviva.sdk:conviva-ima-sdk:4.0.3'
+    implementation 'com.conviva.sdk:conviva-core-sdk:4.0.18'
+//    implementation fileTree(dir: 'libs',include:['*.aar'])
+}

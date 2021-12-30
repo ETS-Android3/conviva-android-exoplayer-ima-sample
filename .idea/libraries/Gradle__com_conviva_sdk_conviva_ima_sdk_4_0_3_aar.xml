@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.conviva.sdk:conviva-ima-sdk:4.0.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d54c39d1cef61c3d07ff453b43460c9/jetified-conviva-ima-sdk-4.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d54c39d1cef61c3d07ff453b43460c9/jetified-conviva-ima-sdk-4.0.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d54c39d1cef61c3d07ff453b43460c9/jetified-conviva-ima-sdk-4.0.3/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.conviva.sdk/conviva-ima-sdk/4.0.3/d335a7067087b6d109752f658ece9594a80ee4d8/conviva-ima-sdk-4.0.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

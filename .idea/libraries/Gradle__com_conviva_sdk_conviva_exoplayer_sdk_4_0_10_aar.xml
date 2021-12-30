@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.conviva.sdk:conviva-exoplayer-sdk:4.0.10@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cde036775105a2df87fce043c8a0e0f4/jetified-conviva-exoplayer-sdk-4.0.10/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cde036775105a2df87fce043c8a0e0f4/jetified-conviva-exoplayer-sdk-4.0.10/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cde036775105a2df87fce043c8a0e0f4/jetified-conviva-exoplayer-sdk-4.0.10/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.conviva.sdk/conviva-exoplayer-sdk/4.0.10/d9504a9fc5871ab3989cf7b45ed5390d32b8841a/conviva-exoplayer-sdk-4.0.10-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

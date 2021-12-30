@@ -1,0 +1,2 @@
+//include ':conviva-ima-sdk', ':Google-IMA-ExoPlayerAdSample'
+//project(':conviva-ima-sdk').projectDir = new File(rootProject.projectDir, '../conviva-android-imasdk/imasdk_lib/conviva-ima-sdk/')
